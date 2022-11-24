@@ -6,43 +6,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mascotaland</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <section class="inicio" id="inicio">
-    <header class="encabezado">
+    <header">
       <h1>Bienvenidos a</h1>
-      <div>"logo"</div>
-      <p>El mundo de tu Mascota</p>
+      <div class="img">*LOGO</div>
+      <p class="frase">El mundo de tu Mascota</p>
       </div>
     </header>
     <main>
-      <div class="login">
+      <div>
         <button type="button" class="ingresar"> Ingresar </button>
       </div>
-      <div class="login">
+      <div>
         <button type="button" class="crearCuenta"> Crear Cuenta </button>
       </div>
     </main>
+    <footer>
+      <div class="img"> *PATITAS</div>
+    </footer>
   </section>
-
-  <section class="logIn">
-    <header class="encabezado">
+  <hr>
+  <!-- cambio de pagina -->
+  <section class="logIn" id="logIn">
+    <header>
+      <div class="img">*PATITAS</div>
       <div clas="logIn" id="logIn">
         <h2>Ingresar</h2>
-        <p>El mundo de tu Mascota</p>
+        <div class="img">*animalito</div>
       </div>
     </header>
     <main>
-      <div class>
-        <p> Ingresa con tu cuenta de correo</p>
-        <label for="email">ejemplo@gmail.com</label>
-        <input type="email" id="email" name="email">
-        <label for="password">Clave:</label>
-        <input type="password" id="password" name="password">
+        <p class="frase1"> Ingresa con tu cuenta de correo</p>
+        <div>
+          <input type="email" class="email" name="email" placeholder="ejemplo@gmail.com">
+        </div>
+        <!-- <label for="password">Clave:</label> -->
+        <div>
+          <input type="password" class="password" name="password" minlength="8" placeholder="clave">
+        </div>
+        <div class="img">*animalito</div>
+        <button type="button" class="ir"> Ir </button>
+      </div>
+        <p class="frase">o</p>
+        <button type="button" class="google" img src="">Ingresa con tu cuenta</button>
       </div>
     </main>
   </section>
+  <hr>
+  <!-- cambio de pagina -->
+  <section class="logIn2">
+    <header>
+      <div clas="logIn" id="logIn">
+        <div class="img">*PATITAS</div>
+        <h2>Crear Cuenta</h2>
+      </div>
+    </header>
+    <main>
+      <div>
+        <p class="frase1"> Crea una cuenta con tu correo</p>
+        <div>
+          <input type="email" class="email" name="email" placeholder="ejemplo@gmail.com"></div>
+        <div>
+          <label for="password" class="frase2">Crea una Clave:</label>
+          <input type="password" class="password" name="password" minlength="8" placeholder="clave"></div>
+        <div>
+          <label for="nickname" class="frase2">Como te llamaremos</label>
+          <input type="text" class="nickname" placeholder="NickName"></div>
+      </div>
+      <button type="button" class="ir"> Ir </button>
+      <div class="vinculoGoogle">
+        <div class="img">*animalito</div>
+        <p>o</p>
+        <button type="button" class="google" img src="">Ingresa con tu cuenta</button>
+      </div>
+    </main>
+  </section>
+  <hr>
+  <!-- cambio de pagina -->
+  
+  <section class="pagPrincipal">
+    <header class="encabezadoPag">
+      <div>*LOGO</div>
+      <p class="frase">El mundo de tu Mascota</p>
+      </div>
+    </header>
+    <nav class="menuNav">
+      <button type="button" class="home">img</button>
+        <button type="button" class="adopcion">img</button>
+          <button type="button" class="perfil">img </button>
+    </nav>
+    <main class="cuerpo">
+      Publicaciones
+    </main>
+    <footer>
+      <div class="img"> *PATITAS</div>
+    </footer>
+  </section> 
 
   <script type="module" src="main.js"></script>
 </body>
