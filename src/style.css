@@ -1,126 +1,163 @@
-body{
-    margin: 0 0 0 0;
-  }
-  .img{
-    height:80px;
-    padding:20px;
-  }
-  #inicio, .logIn, .logIn2, .pagPrincipal{
-      background-color:rgba(115, 242, 242, 1);
-      text-align: center;
-      padding: 20px;
-  } .logIn, .logIn2, .pagPrincipal{
-    display: none;
-}
-  h1, h2, h3{
-    font-size: 32px;
-    color: rgba(5, 88, 249, 1);
-     /* -webkit-text-stroke: 1px rgba(60, 201, 184);   */
-  }
-  .frase{
-    font-size: 32px;
-    color: rgba(91, 110, 116, 1); 
-  }
-  body{
-    margin: 0 0 0 0;
-  }
-  .img{
-    height:80px;
-    padding:20px;
-  }
-  #inicio, .logIn, .logIn2, .pagPrincipal{
-      background-color:rgba(115, 242, 242, 1);
-      text-align: center;
-      padding: 20px;
-  }
-  h1, h2, h3{
-    font-size: 32px;
-    color: rgba(5, 88, 249, 1);
-     /* -webkit-text-stroke: 1px rgba(60, 201, 184);   */
-  }
-  .frase{
-    font-size: 32px;
-    color: rgba(91, 110, 116, 1); 
-  }
-  .iniciar{
-    flex-direction: column;
-  }
-  .ingresar, .crearCuenta{
-    background-color: #FEEBD3;
-    border-color: #F2BD4D;
-    border-radius: 15px;
-    margin: 20px;
-    color: #8B969D;
-    font-size: 20px;
-    height:40px;
-    width:200px;
-    margin:20px;
-  }
-  footer{
-    height:100px;
-    background: rgba(101, 214, 221, 1);
-    margin-top:40px;
-  }
-  /* cambio de pagina */
-.frase1{
-    font-size: 25px;
-    color: rgba(91, 110, 116, 1); 
-  }
-  .frase2{
-    font-size: 18px;
-    color: rgba(91, 110, 116, 1); 
-  }
-  .email, .password, .nickname{
-    background-color:rgba(235, 137, 237, 0.27);
-    border-radius: 10px;
-    color: #8B969D;
-    font-size: 14px;
-    height:40px;
-    width:250px;
-    text-align: center;
-    margin:20px;
-  
-  }
-  .ir{
-    background-color: #FEEBD3;
-    border-color: #F2BD4D;
+
+.inicio,
+.logIn,
+.logIn2,
+.pagPrincipal {
+  background-color: rgba(115, 242, 242, 1);
+  text-align: center;
+  background-color: rgba(115, 242, 242, 1);
+  display: flex;
+  flex-direction: column;
 }
 
-  /* cambio de pagina */
-  .nuevaCuenta{
-    justify-content: column;
-  }
-  .menuNav{
-    margin: 0 0 0 0;
-    background: rgba(101, 214, 221, 1);
-    display:flex;
-    justify-content: space-around;
-    height: 50px;
-  }
-  .home , .adopcion, .perfil{
-    background:rgba(52, 227, 238, 1);
-    border: none;
-    color: rgba(5, 88, 249, 1);
-    font-size: 20px;
-    width: 50px;
-  }
-  .home:hover, .adopcion:hover, .perfil:hover{
-    color: rgba(5, 88, 249, 1);
-    transform: scale(1.1)
-  }
-  .cuerpo{
-    padding:30px;
-    height:200px;
-  }
-  .logo{
-    height: 20%;
-    width: 20%;
-  }
-  .patitasArr{
-    height: 200px;
-    width: 1500px;
-  }
-  .patitasAba{
-    height: 200px;
-    width: 1500px;
-  }
+.logIn,
+.logIn2,
+.pagPrincipal {
+  display: none;
+}
+
+h1{
+  font-size: 150%;
+  color: rgba(5, 88, 249, 1);
+  margin: 5%;
+}
+h2,
+h3 {
+  font-size: 150%;
+  color: rgba(5, 88, 249, 1);
+  margin: 0;
+}
+
+.frase {
+  font-size: 32px;
+  color: rgba(91, 110, 116, 1);
+  margin: 10 0 0 0;
+}
+
+body{
+  margin: 0;
+}
+
+.iniciar {
+  flex-direction: column;
+}
+.ingresar,
+.crearCuenta ,.google{
+  background-color: #FEEBD3;
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  margin: 20px;
+  color: #8B969D;
+  font-size: 20px;
+  height: 40px;
+  width: 200px;
+  margin: 20px;
+  
+}
+
+/* cambio de pagina */
+.frase1 {
+  font-size: 25px;
+  color: rgba(91, 110, 116, 1);
+}
+
+.frase2 {
+  font-size: 18px;
+  color: rgba(91, 110, 116, 1);
+}
+
+.email,
+.password,
+.nickname {
+  background-color: rgba(235, 137, 237, 0.27);
+  border-radius: 10px;
+  color: #8B969D;
+  font-size: 14px;
+  height: 40px;
+  width: 250px;
+  text-align: center;
+  margin: 20px;
+
+}
+
+.ir, .regresar {
+  background-color: #FEEBD3;
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  /* margin: 20px; */
+  color: #8B969D;
+  font-size: 20px;
+  height: 40px;
+  width: 100px;
+
+}
+
+/* cambio de pagina */
+.nuevaCuenta {
+  justify-content: column;
+}
+
+.menuNav {
+  margin: 0 0 0 0;
+  background: rgba(101, 214, 221, 1);
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+
+.home,
+.adopcion,
+.perfil {
+  background: rgba(52, 227, 238, 1);
+  border: none;
+  color: rgba(5, 88, 249, 1);
+  font-size: 20px;
+  width: 40px;
+}
+
+.home:hover,
+.adopcion:hover,
+.perfil:hover {
+  color: rgba(5, 88, 249, 1);
+  transform: scale(1.1)
+}
+
+.cuerpo {
+  padding: 30px;
+  height: 200px;
+}
+
+.logo {
+  height: 25%;
+  width: 25%;
+  margin:  5 0 0 0;
+}
+
+.patitasArr, .patitasAba {
+  height: 100%;
+  width: 100%;
+  background: #65D6DD;
+}
+.animal{
+  height: 20%;
+  width: 20%;
+  margin-top: 40px;
+}
+
+.google{
+  background-color: #FEEBD3;
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  margin: 20px;
+  color: #8B969D;
+  font-size: 20px;
+  height: 40px;
+  width:250px;
+}
+.googleImg{
+  height: 20px;
+  width: 20px;
+}
+.vinculoGoogle{
+  flex-direction: column;
+}
