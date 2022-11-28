@@ -1,3 +1,4 @@
+// import { registrar } from 'firebase/auth';
 // Este es el punto de entrada de tu aplicacion
 // import { myFunction } from './lib/index.js';
 
@@ -39,3 +40,28 @@ document.getElementById('regresar2').addEventListener('click', (e) => {
   document.getElementById('logIn2').style.display = 'none';
   document.getElementById('inicio').style.display = 'block';
 });
+
+// CREAR CUENTA
+
+const crearEmail = document.querySelector('#logIn2-email');
+const crearPassword = document.querySelector('#logIn2-password');
+const crearNickName = document.querySelector('#logIn2-nickName');
+const botonIr2 = document.querySelector('#ir2');
+
+botonIr2.addEventListener('click', () => {
+  const email = crearEmail.value;
+  const password = crearPassword.value;
+  const nickName = crearNickName.value;
+  console.log(email, password, nickName);
+});
+
+/* registrar.then((userCredential) => {
+  Signed in
+const user = userCredential.user;
+
+})
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+ ..
+}); */
