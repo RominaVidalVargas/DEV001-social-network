@@ -19,10 +19,10 @@
     </header>
     <main>
       <div>
-        <button type="button" class="ingresar"> Ingresar </button>
+        <button type="button" class="ingresar" id="ingresar"> Ingresar </button>
       </div>
       <div>
-        <button type="button" class="crearCuenta"> Crear Cuenta </button>
+        <button type="button" class="crearCuenta" id="crearCuenta"> Crear Cuenta </button>
       </div>
     </main>
     <footer>
@@ -30,7 +30,7 @@
     </footer>
   </section>
   <hr>
-  <!-- cambio de pagina -->
+  <!-- cambio de pagina Ingresar-->
   <section class="logIn" id="logIn">
     <header>
       <img src="imagenes/patitasArr.png" class="patitasArr">
@@ -49,18 +49,19 @@
           <input type="password" class="password" name="password" minlength="8" placeholder="clave">
         </div>
         <img src="imagenes/ave.png" class="animalDer">
-        <button type="button" class="ir"> Ir </button>
+        <button type="button" class="ir" id="ir"> Ir </button>
       </div>
         <p class="frase">o</p>
         <button type="button" class="google" img src="imagenes/google.png">Ingresa con tu cuenta</button>
+        <button type="button" class="regresar" id="regresar">Regresar</button>
       </div>
     </main>
   </section>
   <hr>
-  <!-- cambio de pagina -->
-  <section class="logIn2">
+  <!-- cambio de pagina Crear Cuenta-->
+  <section class="logIn2" id="logIn2">
     <header>
-      <div clas="logIn" id="logIn">
+      <div clas="logIn2" id="logIn2">
         <img src="imagenes/patitasArr.png" class="patitasArr">
         <h2>Crear Cuenta</h2>
         <img src="imagenes/cerdo.png" class="animalDer">
@@ -70,35 +71,36 @@
       <div>
         <p class="frase1"> Crea una cuenta con tu correo</p>
         <div>
-          <input type="email" class="email" name="email" placeholder="ejemplo@gmail.com"></div>
+          <input type="email" class="email" name="email" id="logIn2-email" placeholder="ejemplo@gmail.com"></div>
         <div>
           <label for="password" class="frase2">Crea una Clave:</label>
-          <input type="password" class="password" name="password" minlength="8" placeholder="clave"></div>
+          <input type="password" class="password" name="password" id="logIn2-password" minlength="8" placeholder="clave"></div>
         <div>
           <label for="nickname" class="frase2">Como te llamaremos</label>
           <input type="text" class="nickname" placeholder="NickName"></div>
       </div>
-      <button type="button" class="ir"> Ir </button>
+      <button type="button" class="ir" id="ir2"> Ir </button>
       <div class="vinculoGoogle">
         <img src="imagenes/perro.png" class="animalIzq">
         <p>o</p>
         <button type="button" class="google" img src="imagenes/google.png">Ingresa con tu cuenta</button>
+        <button type="button" class="regresar" id="regresar2">Regresar</button>
       </div>
     </main>
   </section>
   <hr>
-  <!-- cambio de pagina -->
+  <!-- cambio de pagina Página Principal-->
   
-  <section class="pagPrincipal">
+  <section class="pagPrincipal" id="pagPrincipal">
     <header class="encabezadoPag">
       <img src="imagenes/logo.png" class="logo">
       <p class="frase">El mundo de tu Mascota</p>
       </div>
     </header>
     <nav class="menuNav">
-      <button type="button" class="home" img src="imagenes/home.png"></button>
-        <button type="button" class="adopcion" img src="imagenes/">img</button>
-          <button type="button" class="perfil" img src="imagenes/perfil.png"></button>
+      <input type="image" class="home" src="imagenes/home.png">
+        <input type="image" class="adopcion" img src="imagenes/adopcion.png">
+          <input type="image" class="perfil" img src="imagenes/perfil.png">
     </nav>
     <main class="cuerpo">
       Publicaciones
