@@ -17,13 +17,13 @@
 }
 
 h1{
-  font-size: 150%;
+  font-size: 50px;
   color: rgba(5, 88, 249, 1);
-  margin: 5%;
+  margin: 3%;
 }
 h2,
 h3 {
-  font-size: 150%;
+  font-size: 40px;
   color: rgba(5, 88, 249, 1);
   margin: 0;
 }
@@ -31,7 +31,7 @@ h3 {
 .frase {
   font-size: 32px;
   color: rgba(91, 110, 116, 1);
-  margin: 10 0 0 0;
+  margin: 5px;
 }
 
 body{
@@ -80,11 +80,10 @@ body{
 
 }
 
-.ir, .regresar {
+.ir {
   background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;
-  /* margin: 20px; */
   color: #8B969D;
   font-size: 20px;
   height: 40px;
@@ -112,11 +111,11 @@ body{
   border: none;
   color: rgba(5, 88, 249, 1);
   font-size: 20px;
-  width: 40px;
+  width: 50px;
 }
 
 .home:hover,
-.adopcion:hover,
+.adopcion:hover ,
 .perfil:hover {
   color: rgba(5, 88, 249, 1);
   transform: scale(1.1)
@@ -124,7 +123,9 @@ body{
 
 .cuerpo {
   padding: 30px;
-  height: 200px;
+  height: auto;
+  
+  
 }
 
 .logo {
@@ -160,4 +161,35 @@ body{
 }
 .vinculoGoogle{
   flex-direction: column;
+}
+.publicar, .regresar, .publicar2{
+  background: rgba(52, 226, 238, 0.464);
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  margin: 20px;
+  color: #8B969D;
+  font-size: 20px;
+  height: 40px;
+  width:100px;
+}
+.modalPublicar{
+  display: none;
+  justify-content: column;
+  background-color:rgba(52, 226, 238, 0.464);
+  height: 250px;
+  width: 310px;
+  padding: 2%;
+  border-style:groove;
+  border-radius: 5%;
+  box-shadow:0 0px 4px #777, 0 0 20px;
+}
+.publicacion{
+  width: 250px;
+  height: 200px;
+  text-align: center;
+  background-color:  rgba(52, 226, 238, 0.464);
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  text-transform: capitalize;
+  
 }

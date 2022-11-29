@@ -41,6 +41,18 @@ document.getElementById('regresar2').addEventListener('click', (e) => {
   document.getElementById('inicio').style.display = 'block';
 });
 
+document.getElementById('publicar2').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('modalPublicar').style.display = 'none';
+  document.getElementById('cuerpo').style.display = 'block';
+});
+
+document.getElementById('publicar').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('publicar').style.display = 'none';
+  document.getElementById('modalPublicar').style.display = 'block';
+});
+
 // CREAR CUENTA
 
 const crearEmail = document.querySelector('#logIn2-email');
