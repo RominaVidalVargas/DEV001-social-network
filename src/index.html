@@ -101,21 +101,28 @@
       </div>
     </header>
     <nav class="menuNav">
-      <input type="image" class="home" src="imagenes/home.png">
-      <input type="image" class="adopcion" img src="imagenes/adopcion.png">
-      <input type="image" class="perfil" img src="imagenes/perfil.png">
-     </nav>
-      <main class="cuerpo" id="cuerpo">
-          <button type="button" class="publicar" id="publicar"> Publicar</button>
-          <div class="modalPublicar" id="modalPublicar">
-            <input type="text" class="publicacion" placeholder="Escribe aqui tu Publicación"/>
-            <div><button type="button" class="publicar2" id="publicar2"> Publicar</button></div>
-          </div>
-        </section>
-      </main>
-      <footer>
-        <img src="imagenes/patitasAba.png" class="patitasAba">
-      </footer>
+      <input type="button" class="home" id="home" value="Home">
+      <input type="button" class="adopcion" id="adopcion" value="Adopción">
+      <input type="button" class="perfil" id="perfil" value="Perfil">
+      </div>
+    </nav>
+    <main class="cuerpo" id="cuerpo">
+      <button type="button" class="publicar" id="publicar"> Publicar</button>
+      <div class="modalPublicar" id="modalPublicar">
+        <input type="text" class="publicacion" placeholder="Escribe aquí" />
+        <div><button type="button" class="publicar2" id="publicar2"> Publicar</button></div>
+      </div>
+      <div class="modalCierre" id="modalCierre">
+        <img src="imagenes/descarga-removebg-preview (1).png" class="cierre"/><br>
+        <button type="button" class="editar" id="editar"> Editar Perfil</button><br>
+        <button type="button" class="cerrar" id="cerrar"> Cerrar Sesión</button>
+      </div>
+
+  </section>
+  </main>
+  <footer>
+    <img src="imagenes/patitasAba.png" class="patitasAba">
+  </footer>
   </section>
   <script type="module" src="main.js"></script>
 </body>

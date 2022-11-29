@@ -31,7 +31,7 @@ h3 {
 .frase {
   font-size: 32px;
   color: rgba(91, 110, 116, 1);
-  margin: 5px;
+  margin: 4%;
 }
 
 body{
@@ -42,7 +42,7 @@ body{
   flex-direction: column;
 }
 .ingresar,
-.crearCuenta ,.google{
+.crearCuenta ,.google, .ir{
   background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;
@@ -80,17 +80,6 @@ body{
 
 }
 
-.ir {
-  background-color: #FEEBD3;
-  border-color: #F2BD4D;
-  border-radius: 15px;
-  color: #8B969D;
-  font-size: 20px;
-  height: 40px;
-  width: 100px;
-
-}
-
 /* cambio de pagina */
 .nuevaCuenta {
   justify-content: column;
@@ -105,20 +94,31 @@ body{
 }
 
 .home,
-.adopcion,
+.adopcion {
+  background: rgba(52, 227, 238, 1);
+  border: none;
+  width: 25%;
+  text-align: center;
+  font-size: 100%;
+  color: rgba(91, 110, 116, 1);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .perfil {
   background: rgba(52, 227, 238, 1);
   border: none;
-  color: rgba(5, 88, 249, 1);
-  font-size: 20px;
-  width: 50px;
+  width: 20%;
+  text-align: center;
+  font-size: auto;
+  color: rgba(91, 110, 116, 1);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .home:hover,
 .adopcion:hover ,
 .perfil:hover {
-  color: rgba(5, 88, 249, 1);
-  transform: scale(1.1)
+  color: #F2BD4D;
+  transform: scale(1.1);
+  background:#FEEBD3;
 }
 
 .cuerpo {
@@ -128,12 +128,17 @@ body{
   
 }
 
-.logo {
+.logo{
   height: 25%;
   width: 25%;
   margin:  5 0 0 0;
 }
 
+.cierre {
+  height: 45%;
+  width: 55%;
+  margin:  5 0 0 0;
+}
 .patitasArr, .patitasAba {
   height: 100%;
   width: 100%;
@@ -145,7 +150,7 @@ body{
   margin-top: 40px;
 }
 
-.google{
+.google,.cerrar,.editar{
   background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;
@@ -163,7 +168,7 @@ body{
   flex-direction: column;
 }
 .publicar, .regresar, .publicar2{
-  background: rgba(52, 226, 238, 0.464);
+  background:rgba(52, 226, 238, 0.473);
   border-color: #F2BD4D;
   border-radius: 15px;
   margin: 20px;
@@ -175,21 +180,35 @@ body{
 .modalPublicar{
   display: none;
   justify-content: column;
+  align-content: center;
   background-color:rgba(52, 226, 238, 0.464);
-  height: 250px;
-  width: 310px;
+  height: 75%;
+  width: 60%;
   padding: 2%;
   border-style:groove;
   border-radius: 5%;
   box-shadow:0 0px 4px #777, 0 0 20px;
+  margin: auto;
 }
 .publicacion{
-  width: 250px;
-  height: 200px;
+  width: 80%;
+  height: 150px;
   text-align: center;
   background-color:  rgba(52, 226, 238, 0.464);
   border-color: #F2BD4D;
   border-radius: 15px;
   text-transform: capitalize;
-  
 }
+.modalCierre{
+  display: none;
+  justify-content: column;
+  align-content: center;
+  background-color:rgba(52, 226, 238, 0.464);
+  height: 55%;
+  width: 60%;
+  border-style:groove;
+  border-radius: 5%;
+  box-shadow:0 0px 4px #777, 0 0 20px;
+  margin: auto;
+}
+

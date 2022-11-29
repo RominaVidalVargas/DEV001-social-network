@@ -53,6 +53,26 @@ document.getElementById('publicar').addEventListener('click', (e) => {
   document.getElementById('modalPublicar').style.display = 'block';
 });
 
+document.getElementById('perfil').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('publicar').style.display = 'none';
+  document.getElementById('modalPublicar').style.display = 'none';
+  document.getElementById('modalCierre').style.display = 'block';
+});
+
+document.getElementById('cerrar').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('pagPrincipal').style.display = 'none';
+  document.getElementById('inicio').style.display = 'block';
+});
+
+document.getElementById('home').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('modalCierre').style.display = 'none';
+  document.getElementById('modalPublicar').style.display = 'none';
+  document.getElementById('publicar').style.display = 'block';
+});
+
 // CREAR CUENTA
 
 const crearEmail = document.querySelector('#logIn2-email');
