@@ -16,4 +16,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-export const registrar = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+export const registrar = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password);
+  // .then(function (userCredential) {
+  // console.log(userCredential)
+};
+
+/* .catch(function (error) {
+  console.log("hay un error aquí")
+})
+}; */

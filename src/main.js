@@ -1,12 +1,50 @@
+import { inicio } from './Inicio.js';
+import { crearCuenta } from './CrearCuenta.js';
+import { ingresar } from './Ingresar.js';
+import { pagPrincipal } from './PagPrin.js';
+
+const containerRoot = document.getElementById('root');
+let rutas = {};
+
+const changeRouter = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  containerRoot.removeChild(containerRoot.firstChild);
+  containerRoot.appendChild(rutas[pathname]);
+};
+
+rutas = {
+  '/': inicio(changeRouter),
+  '/crearCuenta': crearCuenta(changeRouter),
+  '/ingresar': ingresar(changeRouter),
+  '/pagPrincipal': pagPrincipal(changeRouter),
+};
+
+const verPost = () => rutas[window.location.pathname];
+
+window.onpopstate = () => {
+  containerRoot.removeChild(containerRoot.firstChild);
+  containerRoot.append(verPost());
+};
+containerRoot.appendChild(verPost());
+
 // import { registrar } from 'firebase/auth';
 // Este es el punto de entrada de tu aplicacion
 // import { myFunction } from './lib/index.js';
+// import { routes, onNavigate, rootDiv } from './app.js';
+
+// document.addEventListener('DOMContentLoaded', app);
+// window.addEventListener('hashchande', app);
 
 // myFunction();
 
 // cambio de pantallas por botones
-document.getElementById('crearCuenta').addEventListener('click', (e) => {
-  e.preventDefault();
+
+/* document.getElementById('crearCuenta').addEventListener('click', (e) => {
+   e.preventDefault();
   document.getElementById('inicio').style.display = 'none';
   document.getElementById('logIn2').style.display = 'block';
 });

@@ -2,7 +2,9 @@
 .inicio,
 .logIn,
 .logIn2,
+.logIn3,
 .pagPrincipal {
+  align-content: center;
   background-color: rgba(115, 242, 242, 1);
   text-align: center;
   background-color: rgba(115, 242, 242, 1);
@@ -10,11 +12,11 @@
   flex-direction: column;
 }
 
-.logIn,
+/* .logIn,
 .logIn2,
 .pagPrincipal {
   display: none;
-}
+}*/
 
 h1{
   font-size: 50px;
@@ -43,6 +45,7 @@ body{
 }
 .ingresar,
 .crearCuenta ,.google, .ir{
+  align-content: center;
   background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;
@@ -68,7 +71,7 @@ body{
 
 .email,
 .password,
-.nickname {
+.nickName {
   background-color: rgba(235, 137, 237, 0.27);
   border-radius: 10px;
   color: #8B969D;
