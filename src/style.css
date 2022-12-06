@@ -1,5 +1,5 @@
 
-.inicio,
+/*.inicio,
 .logIn,
 .logIn2,
 .pagPrincipal {
@@ -55,7 +55,7 @@ body{
   
 }
 
-/* cambio de pagina */
+/* cambio de pagina 
 .frase1 {
   font-size: 25px;
   color: rgba(91, 110, 116, 1);
@@ -80,7 +80,7 @@ body{
 
 }
 
-/* cambio de pagina */
+/* cambio de pagina 
 .nuevaCuenta {
   justify-content: column;
 }
@@ -210,5 +210,5 @@ body{
   border-radius: 5%;
   box-shadow:0 0px 4px #777, 0 0 20px;
   margin: auto;
-}
+}*/ 
 
