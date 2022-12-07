@@ -10,4 +10,4 @@
   } else (hash === '#/ingresar')
   { document.getElementById.innerHTML = '<h2>Ingresar</2>';
   }
-}*/
+} */

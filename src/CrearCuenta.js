@@ -1,3 +1,6 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase.js';
+
 export const crearCuenta = (changeRouter) => {
   const contenedorCrea = document.createElement('div');
   contenedorCrea.classList.add('logIn2');
@@ -42,8 +45,30 @@ export const crearCuenta = (changeRouter) => {
   Btngoogle.classList.add('google');
 
   BtnIr2.addEventListener('click', () => {
-    changeRouter('/pagPrincipal');
+    const userEmail = email.value;
+    const userPassword = password.value;
+    createUserWithEmailAndPassword(auth, userEmail, userPassword)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        changeRouter('/pagPrincipal');
+        // ...
+      })
+
+      .catch((error) => {
+        if (error.code === 'auth/email-already-in-use') {
+          alert('Este usuario ya se encuentra registrado', 'error');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('El correo ingresado no es válido');
+        } else if (error.code === 'auth/weak-password') {
+          alert('La clave debe tener al menos seis caracteres');
+        } else if (error.code) {
+          alert('El usuario o la clave son incorrectos');
+        }
+      });
   });
+
   contenedorBotones.appendChild(nickName);
   contenedorBotones.appendChild(email);
   contenedorBotones.appendChild(password);
@@ -53,45 +78,3 @@ export const crearCuenta = (changeRouter) => {
   contenedorCrea.append(contenedorBotones);
   return contenedorCrea;
 };
-
-/* export function CrearCuenta() {
-  return '<h1> CREAR CUENTA </h1>';
-}
- export function crearCuenta() {
-  const $crearCuenta = document.createElement('section');
-  $crearCuenta.classList.add('crearCuenta');
-  $crearCuenta.innerHTML = `
-      <div clas="logIn2" id="logIn2">
-        <img src="imagenes/patitasArr.png" class="patitasArr">
-        <img src="imagenes/cerdo.png" class="animal">
-        <h2>Crear Cuenta</h2>
-    </header>
-    <main>
-      <div>
-        <p class="frase1"> Crea una cuenta con tu correo</p>
-        <div>
-          <input type="email" class="email" name="email" id="logIn2-email"
-          placeholder="ejemplo@gmail.com">
-        </div>
-        <div>
-          <label for="password" class="frase2">Crea una Clave:</label>
-          <div><input type="password" class="password" name="password"
-          id="logIn2-password" minlength="8"
-              placeholder="clave"></div>
-        </div>
-        <div>
-          <label for="nickname" class="frase2">Como te llamaremos:</label>
-          <div><input type="text" class="nickname" id="logIn2-nickName"
-          placeholder="NickName"></div>
-        </div>
-        <div><img src="imagenes/perro.png" class="animal"></div>
-        <button type="button" class="ir" id="ir2"> Ir</button>
-        <div class="vinculoGoogle">
-          <p class="frase">o</p>
-          <button type="button" class="google"> <img class="googleImg"
-          src="imagenesgoogle.png" /> Ingresa con tu
-            Cuenta</button>
-          <div><button type="button" class="regresar" id="regresar2">Regresar</button></div>
-        </div>`;
-  return crearCuenta;
-} */
