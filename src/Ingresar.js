@@ -29,7 +29,7 @@ export const ingresar = (changeRouter) => {
   const imgGoogle = document.createElement('div');
   imgGoogle.classList.add('imgGoogle');
   imgGoogle.innerHTML = `
-    <img src="imagenes/google.png">`;
+    <img src="imagenes/google.png" class="imgGoogle">`;
   const Btngoogle = document.createElement('button');
   Btngoogle.textContent = 'Ingresa con tu cuenta';
   Btngoogle.classList.add('google');
