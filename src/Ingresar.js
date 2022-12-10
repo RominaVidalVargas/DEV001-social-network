@@ -46,7 +46,7 @@ export const ingresar = (changeRouter) => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
-      changeRouter('/PagPrincipal');
+      changeRouter('/pagPrincipal');
     } catch (error) {
       console.log(error);
     }
