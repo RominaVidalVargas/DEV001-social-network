@@ -12,11 +12,6 @@
   flex-direction: column;
 }
 
-/* .logIn,
-.logIn2,
-.pagPrincipal {
-  display: none;
-}*/
 
 h1{
   font-size: 50px;
@@ -57,7 +52,16 @@ body{
   margin: 20px;
   
 }
-
+.Ojo{
+  font-size: 10px;
+  height: 20px;
+  width: 55px;
+  margin: 20px;
+  border:  #8B969D;
+  color: #8B969D;
+  background-color: rgba(235, 137, 237, 0.27);
+   
+}
 /* cambio de pagina */
 .frase1 {
   font-size: 25px;
@@ -83,7 +87,7 @@ body{
 
 }
 
-cambio de pagina 
+/* cambio de pagina */
 .nuevaCuenta {
   justify-content: column;
 }
@@ -214,4 +218,3 @@ cambio de pagina
   box-shadow:0 0px 4px #777, 0 0 20px;
   margin: auto;
 }
-
