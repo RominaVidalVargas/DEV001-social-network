@@ -1,3 +1,5 @@
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+
 export const ingresar = (changeRouter) => {
   const contenedorIng = document.createElement('div');
   contenedorIng.classList.add('logIn');
@@ -39,6 +41,41 @@ export const ingresar = (changeRouter) => {
     changeRouter('/pagPrincipal');
   });
 
+  Btngoogle.addEventListener('click', async () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    try {
+      const credentials = await signInWithPopup(auth, provider);
+      changeRouter('/PagPrincipal');
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  /* signInWithPopup(auth, provider)
+    // signInWithRedirect(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+        changeRouter('/pagPrincipal');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        console.log(error);
+      });
+     // The email of the user's account used.
+        if (error.code === 'auth/email-already-in-use') {
+          alert('Error 1 ingresar', 'error');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('Error 2 ingresar');
+        };
+        }
+      });
+  });
+ */
   contenedorIng.append(email, password, BtnIr, imgGoogle, Btngoogle);
   return contenedorIng;
 };
