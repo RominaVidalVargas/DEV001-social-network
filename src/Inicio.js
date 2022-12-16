@@ -13,10 +13,10 @@ export const inicio = (changeRouter) => {
   Btning.textContent = 'Ingresar';
   Btning.classList.add('ingresar');
   const crear = document.createElement('button');
-  crear.textContent = 'crear cuenta';
+  crear.textContent = 'Crear cuenta';
   crear.classList.add('crearCuenta');
-  const footer = document.createElement('div');
-  footer.classList.add('inicio');
+  const footer = document.createElement('footer');
+  footer.classList.add('footer');
   footer.innerHTML = `
   <footer class="footer">
     <img src="imagenes/patitasAba.png" class="patitasAba">

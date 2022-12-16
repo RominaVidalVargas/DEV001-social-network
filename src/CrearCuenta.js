@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase.js';
+import { saveTask } from './firebase.js';
 
 export const crearCuenta = (changeRouter) => {
   const contenedorCrea = document.createElement('div');
@@ -29,22 +30,23 @@ export const crearCuenta = (changeRouter) => {
   password.id = 'password';
   password.type = 'password';
   password.name = 'password';
-  /* password.minlength = '6 required';
-  password.placeholder = 'clave'; */
+  password.minlength = '6 required';
+  password.placeholder = 'clave';
+  const errorInfo = document.createElement('p');
+  errorInfo.id = 'errorInfo';
   const BtnOjo = document.createElement('button');
   BtnOjo.textContent = 'Mostrar';
   BtnOjo.classList.add('Ojo');
   const BtnIr2 = document.createElement('button');
-  BtnIr2.textContent = 'Ir';
+  BtnIr2.textContent = 'Crear Cuenta';
   BtnIr2.classList.add('ir');
-  const imgGoogle = document.createElement('div');
-  imgGoogle.classList.add('imgGoogle');
-  imgGoogle.innerHTML = `
-    <img src="imagenes/google.png" class="imgGoogle">`;
-  const Btngoogle = document.createElement('button');
-  Btngoogle.textContent = 'Ingresa con tu cuenta';
-  Btngoogle.classList.add('google');
-
+  // const imgGoogle = document.createElement('div');
+  // imgGoogle.classList.add('imgGoogle');
+  // imgGoogle.innerHTML = `
+  // <img src="imagenes/google.png" class="imgGoogle">`;
+  // const Btngoogle = document.createElement('button');
+  // Btngoogle.textContent = 'Ingresa con tu cuenta';
+  // Btngoogle.classList.add('google');
   BtnOjo.addEventListener('click', () => {
     const tipo = document.getElementById('password');
     if (tipo.type === 'password') {
@@ -55,6 +57,7 @@ export const crearCuenta = (changeRouter) => {
   });
 
   BtnIr2.addEventListener('click', () => {
+    const userNickName = nickName.value;
     const userEmail = email.value;
     const userPassword = password.value;
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
@@ -68,26 +71,27 @@ export const crearCuenta = (changeRouter) => {
 
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
-          alert('Este usuario ya se encuentra registrado', 'error');
+          document.getElementById('errorInfo').innerHTML = 'Este usuario ya se encuentra registrado';
         } else if (error.code === 'auth/invalid-email') {
-          alert('El correo ingresado no es válido');
-        } else if (error.code) {
-          alert('El usuario o la clave son incorrectos');
+          document.getElementById('errorInfo').innerHTML = 'El correo ingresado no es válido';
         } else if (password.length < 6) {
-          alert('Password minimo 6 caracteres');
+          document.getElementById('errorInfo').innerHTML = 'Password mínimo 6 caracteres';
         } else if (error.code === 'auth/weak-password') {
-          alert('La clave debe tener al menos seis caracteres');
+          document.getElementById('errorInfo').innerHTML = 'La clave debe tener al menos seis caracteres';
         }
       });
+    saveTask(userNickName, userEmail);
+    console.log(saveTask);
   });
 
   contenedorBotones.appendChild(nickName);
   contenedorBotones.appendChild(email);
   contenedorBotones.appendChild(password);
   contenedorBotones.appendChild(BtnOjo);
+  contenedorBotones.appendChild(errorInfo);
   contenedorBotones.appendChild(BtnIr2);
-  contenedorBotones.appendChild(imgGoogle);
-  contenedorBotones.appendChild(Btngoogle);
+  // contenedorBotones.appendChild(imgGoogle);
+  // contenedorBotones.appendChild(Btngoogle);
   contenedorCrea.append(contenedorBotones);
   return contenedorCrea;
 };

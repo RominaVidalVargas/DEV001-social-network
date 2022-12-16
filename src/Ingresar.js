@@ -12,7 +12,6 @@ export const ingresar = (changeRouter) => {
   <main>
     <p class="frase1"> Ingresa con tu cuenta de correo</p>
     <div>`;
-
   const email = document.createElement('input');
   email.classList.add('email');
   email.id = 'email';
@@ -25,6 +24,9 @@ export const ingresar = (changeRouter) => {
   password.type = 'password';
   password.name = 'password';
   password.placeholder = 'clave';
+  const BtnOjo = document.createElement('button');
+  BtnOjo.textContent = 'Mostrar';
+  BtnOjo.classList.add('Ojo');
   const BtnIr = document.createElement('button');
   BtnIr.textContent = 'Ir';
   BtnIr.classList.add('ir');
@@ -35,12 +37,17 @@ export const ingresar = (changeRouter) => {
   const Btngoogle = document.createElement('button');
   Btngoogle.textContent = 'Ingresa con tu cuenta';
   Btngoogle.classList.add('google');
-  // Btngoogle.img = 'src="imagenes/google.png"';
-
   BtnIr.addEventListener('click', () => {
     changeRouter('/pagPrincipal');
   });
-
+  BtnOjo.addEventListener('click', () => {
+    const tipo = document.getElementById('password');
+    if (tipo.type === 'password') {
+      tipo.type = 'text';
+    } else {
+      tipo.type = 'password';
+    }
+  });
   Btngoogle.addEventListener('click', async () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
@@ -76,6 +83,6 @@ export const ingresar = (changeRouter) => {
       });
   });
  */
-  contenedorIng.append(email, password, BtnIr, imgGoogle, Btngoogle);
+  contenedorIng.append(email, password, BtnOjo, BtnIr, imgGoogle, Btngoogle);
   return contenedorIng;
 };
