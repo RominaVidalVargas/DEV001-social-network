@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase.js';
-import { saveTask } from './firebase.js';
+import { nuevoUsuario, saveTask } from '../controller/controladoresfb';
+
+// import { changeRouter } from '../main.js';
+// import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const crearCuenta = (changeRouter) => {
   const contenedorCrea = document.createElement('div');
@@ -40,13 +41,7 @@ export const crearCuenta = (changeRouter) => {
   const BtnIr2 = document.createElement('button');
   BtnIr2.textContent = 'Crear Cuenta';
   BtnIr2.classList.add('ir');
-  // const imgGoogle = document.createElement('div');
-  // imgGoogle.classList.add('imgGoogle');
-  // imgGoogle.innerHTML = `
-  // <img src="imagenes/google.png" class="imgGoogle">`;
-  // const Btngoogle = document.createElement('button');
-  // Btngoogle.textContent = 'Ingresa con tu cuenta';
-  // Btngoogle.classList.add('google');
+
   BtnOjo.addEventListener('click', () => {
     const tipo = document.getElementById('password');
     if (tipo.type === 'password') {
@@ -55,12 +50,11 @@ export const crearCuenta = (changeRouter) => {
       tipo.type = 'password';
     }
   });
-
   BtnIr2.addEventListener('click', () => {
     const userNickName = nickName.value;
     const userEmail = email.value;
     const userPassword = password.value;
-    createUserWithEmailAndPassword(auth, userEmail, userPassword)
+    nuevoUsuario(userEmail, userPassword)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -68,7 +62,6 @@ export const crearCuenta = (changeRouter) => {
         changeRouter('/pagPrincipal');
         // ...
       })
-
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
           document.getElementById('errorInfo').innerHTML = 'Este usuario ya se encuentra registrado';
@@ -80,18 +73,15 @@ export const crearCuenta = (changeRouter) => {
           document.getElementById('errorInfo').innerHTML = 'La clave debe tener al menos seis caracteres';
         }
       });
-    saveTask(userNickName, userEmail);
+    saveTask(userNickName, userEmail, userPassword);
     console.log(saveTask);
   });
-
   contenedorBotones.appendChild(nickName);
   contenedorBotones.appendChild(email);
   contenedorBotones.appendChild(password);
   contenedorBotones.appendChild(BtnOjo);
   contenedorBotones.appendChild(errorInfo);
   contenedorBotones.appendChild(BtnIr2);
-  // contenedorBotones.appendChild(imgGoogle);
-  // contenedorBotones.appendChild(Btngoogle);
   contenedorCrea.append(contenedorBotones);
   return contenedorCrea;
 };
