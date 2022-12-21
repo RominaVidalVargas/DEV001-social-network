@@ -1,12 +1,11 @@
-import { inicio } from './Inicio.js';
-import { crearCuenta } from './CrearCuenta.js';
-import { ingresar } from './Ingresar.js';
-import { pagPrincipal } from './PagPrin.js';
+import { inicio } from './lib/Inicio';
+import { crearCuenta } from './lib/CrearCuenta.js';
+import { ingresar } from './lib/Ingresar';
+import { pagPrincipal } from './lib/PagPrin';
 
 const containerRoot = document.getElementById('root');
-let rutas = {};
 
-const changeRouter = (pathname) => {
+export const changeRouter = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -16,7 +15,7 @@ const changeRouter = (pathname) => {
   containerRoot.appendChild(rutas[pathname]);
 };
 
-rutas = {
+const rutas = {
   '/': inicio(changeRouter),
   '/crearCuenta': crearCuenta(changeRouter),
   '/ingresar': ingresar(changeRouter),
