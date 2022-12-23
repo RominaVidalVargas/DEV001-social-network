@@ -37,9 +37,11 @@ export const ingresar = (changeRouter) => {
   const Btngoogle = document.createElement('button');
   Btngoogle.textContent = 'Ingresa con tu cuenta';
   Btngoogle.classList.add('google');
+ 
   BtnIr.addEventListener('click', () => {
     changeRouter('/pagPrincipal');
   });
+  
   BtnOjo.addEventListener('click', () => {
     const tipo = document.getElementById('password');
     if (tipo.type === 'password') {
