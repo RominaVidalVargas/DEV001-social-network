@@ -31,7 +31,6 @@ export const crearCuenta = (changeRouter) => {
   password.id = 'password';
   password.type = 'password';
   password.name = 'password';
-  password.minlength = '6 required';
   password.placeholder = 'clave';
   const errorInfo = document.createElement('p');
   errorInfo.id = 'errorInfo';
@@ -57,10 +56,8 @@ export const crearCuenta = (changeRouter) => {
     nuevoUsuario(userEmail, userPassword)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user);
+        console.log(userCredential);
         changeRouter('/pagPrincipal');
-        // ...
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
