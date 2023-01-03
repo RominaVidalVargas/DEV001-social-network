@@ -1,4 +1,6 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, onAuthStateChanged
+
+} from 'firebase/auth';
 import { getFirestore, 
   collection, 
   addDoc, 
@@ -17,6 +19,27 @@ export const nuevoUsuario = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
+export const SignIn = (userEmail, userPassword) => {
+  return signInWithEmailAndPassword(auth, userEmail, userPassword);
+
+};
+/*
+ // saber el status del usuario
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});*/
+
+
+
 
 export const db = getFirestore();
 export const saveTask = (nickName, email) => {
@@ -33,7 +56,7 @@ export const publicaciones = (subject) => {
 export const getNotes = ()=>getDocs(collection(db, 'publicaciones'));
 
 // para actualizar en tiempo real
-export const onGetNotes = (callback)=>onSnapshot(collection(db,'publicaciones'),callback);
+export const onGetNotes = (callback)=>onSnapshot(collection(db,'publicaciones',),callback);
 
 // para borrar las publicaciones
 export const DeleteNotes = id => deleteDoc(doc(db,'publicaciones',id));

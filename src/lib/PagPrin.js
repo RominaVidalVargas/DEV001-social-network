@@ -2,16 +2,31 @@
 import { doc } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { publicaciones, getNotes, onGetNotes, DeleteNotes, editNote, updateNotes, getNote } from '../controller/controladoresfb';
-
-
-
-
+//import { Formulario, Contenedor } from './formulario.js';
 
 
 //para leer datos
 const WritePubli = document.getElementById('WritePubli');
-const ContenPubli = document.getElementById('contenPost');
+const writePublic = document.createElement('form');
+writePublic.innerHTML= `<form id ="WritePubli">
+<div class="col-75">
+  <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+</div>
 
+<div class="row">
+<input type="submit" value="Submit" id = "submit">
+</div>
+</form>`;
+ 
+Formulario.append(writePublic, ContenPubli);
+return Formulario;
+
+const ContenPubli = document.getElementById('contenPost');
+const contenPublic = document.createElement('div');
+
+contenPublic.innerHTML= `<div class="container" id="contenPost"></div>`;
+Contenedor.append(contenPublic);
+return Contenedor
 
 let editStatus = false;
 let id = '';
@@ -23,14 +38,12 @@ export function pagPrincipal() {
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       ContenPubli.innerHTML += `<div>
+      
         <h3>${post.subject}</h3>
+        
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button>
-       
-       
-    
-   
-        </div>`;
+      </div>`;
     });
 
     //borrar publicaciones
@@ -64,8 +77,7 @@ export function pagPrincipal() {
     });
   });
  
-   
-  }
+}  
   
   
   
@@ -97,5 +109,7 @@ WritePubli.addEventListener("submit", async (e) => {
     console.log(error);
   }
 });
+
+
 
 
