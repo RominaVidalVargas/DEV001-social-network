@@ -1,4 +1,6 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, } from 'firebase/auth';
+import { SignIn } from '../controller/controladoresfb';
+
 
 export const ingresar = (changeRouter) => {
   const contenedorIng = document.createElement('div');
@@ -24,6 +26,10 @@ export const ingresar = (changeRouter) => {
   password.type = 'password';
   password.name = 'password';
   password.placeholder = 'clave';
+  const errorInfo2 = document.createElement('p');
+  errorInfo2.id = 'errorInfo2';
+  // errorInfo2.innerText = 'Aquí deben aparecer los errores';
+
   const BtnOjo = document.createElement('button');
   BtnOjo.textContent = 'Mostrar';
   BtnOjo.classList.add('Ojo');
@@ -39,7 +45,34 @@ export const ingresar = (changeRouter) => {
   Btngoogle.classList.add('google');
  
   BtnIr.addEventListener('click', () => {
-    changeRouter('/pagPrincipal');
+    const userEmail = email.value;
+    const userPassword = password.value;
+    SignIn(userEmail, userPassword, changeRouter)
+      .then((userCredential) => {
+        changeRouter('/pagPrincipal');
+        
+        const user = userCredential.user;
+        console.log(user);
+     })
+     
+      .catch((error) => {
+        if (error.code === 'auth/email-already-in-use') {
+          document.getElementById.innerHTML = 'Este usuario ya se encuentra registrado';
+        } else if (error.code === 'auth/invalid-email') {
+          document.getElementById('errorInfo2').innerHTML = 'El correo ingresado no es válido';
+        } else if (password.length < 6) {
+          document.getElementById('errorInfo2').innerHTML = 'Password mínimo 6 caracteres';
+        } else if (error.code === 'auth/weak-password') {
+          document.getElementById('errorInfo2').innerHTML = 'La clave debe tener al menos seis caracteres';
+        }
+        
+      });
+
+
+  });
+
+  BtnIr.addEventListener('click', () => {
+    const verFormulario = document.getElementsByClassName('formulario').style.display = 'block';
   });
   
   BtnOjo.addEventListener('click', () => {
@@ -55,36 +88,13 @@ export const ingresar = (changeRouter) => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
+      console.log(credentials);
       changeRouter('/pagPrincipal');
     } catch (error) {
       console.log(error);
     }
   });
-  /* signInWithPopup(auth, provider)
-    // signInWithRedirect(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        changeRouter('/pagPrincipal');
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        console.log(error);
-      });
-     // The email of the user's account used.
-        if (error.code === 'auth/email-already-in-use') {
-          alert('Error 1 ingresar', 'error');
-        } else if (error.code === 'auth/invalid-email') {
-          alert('Error 2 ingresar');
-        };
-        }
-      });
-  });
- */
+ 
   contenedorIng.append(email, password, BtnOjo, BtnIr, imgGoogle, Btngoogle);
   return contenedorIng;
 };
