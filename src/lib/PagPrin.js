@@ -1,66 +1,101 @@
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { publicaciones } from '../controller/controladoresfb';
+//import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
+import { doc } from 'firebase/firestore';
+import { async } from 'regenerator-runtime';
+import { publicaciones, getNotes, onGetNotes, DeleteNotes, editNote, updateNotes, getNote } from '../controller/controladoresfb';
+
+
+
+
+
+
+//para leer datos
+const WritePubli = document.getElementById('WritePubli');
+const ContenPubli = document.getElementById('contenPost');
+
+
+let editStatus = false;
+let id = '';
 
 export function pagPrincipal() {
-  const tarjeta = document.createElement('div');
-  tarjeta.classList.add = 'tarjeta';
-  tarjeta.innerHTML = '<p> Encabezado </p>';
+  onGetNotes((querySnapshot) => {
+    ContenPubli.innerHTML = "";
 
-  const modal = document.createElement('input');
-  modal.classList.add('modal');
-  modal.id = 'modal';
-  modal.type = 'textarea';
-  modal.name = 'modal';
-  modal.row = '33';
-  modal.cols = '33';
-  modal.placeholder = 'escribe a quí tu publicaicón';
-  const btnPublicar = document.createElement('button');
-  btnPublicar.textContent = 'Publicar';
-  btnPublicar.classList.add('Publicar');
-  btnPublicar.id = 'Publicar';
-  document.getElementById('Publicar');
-  btnPublicar.addEventListener('click', () => {
-    const publicacion = modal.value;
-    publicaciones(publicacion);
-    console.log(publicacion);
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      ContenPubli.innerHTML += `<div>
+        <h3>${post.subject}</h3>
+        <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
+        <button class='Btneditar' data-id='${doc.id}'>Editar</button>
+       
+       
+    
+   
+        </div>`;
+    });
+
+    //borrar publicaciones
+
+    const Btnborrar = ContenPubli.querySelectorAll(".Btnborrar");
+    Btnborrar.forEach((Btn) => 
+      Btn.addEventListener('click', async ({ target: { dataset } }) => {
+        try {
+          await DeleteNotes(dataset.id);
+        } catch (error) {
+          console.log('error');
+        }
+
+      })
+    );
+    //editar publicaciones
+    const Btneditar = ContenPubli.querySelectorAll(".Btneditar");
+    Btneditar.forEach((Btn) => {
+      Btn.addEventListener('click', async (e) => {
+        try {
+          const doc = await getNote(e.target.dataset.id);
+          const nota = doc.data();
+          WritePubli['subject'].value = nota.subject;
+          editStatus = true;
+          id = doc.id;
+          WritePubli["submit"].innerText = "Update";
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    });
   });
-  tarjeta.append(modal, btnPublicar);
-  return tarjeta;
-}
+ 
+   
+  }
+  
+  
+  
 
-/* document.getElementById('publicar').addEventListener('click', (e) => {
+
+//actualizar publicaciones
+WritePubli.addEventListener("submit", async (e) => {
   e.preventDefault();
-  document.getElementById('publicar').style.display = 'none';
-  document.getElementById('modalPublicar').style.display = 'block';
-});
-document.getElementById('regresar2').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('logIn2').style.display = 'none';
-  document.getElementById('inicio').style.display = 'block';
+
+  const post = WritePubli["subject"];
+
+  try {
+    if (!editStatus) {
+      await publicaciones(subject.value);
+    } else {
+      await updateNotes(id, {
+        subject: subject.value,
+
+      });
+
+      editStatus = false;
+      id = "";
+      WritePubli["btn-task-form"].innerText = "Save";
+    }
+
+    WritePubli.reset();
+    subject.focus();
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-document.getElementById('publicar2').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('modalPublicar').style.display = 'none';
-  document.getElementById('cuerpo').style.display = 'block';
-});
 
-document.getElementById('perfil').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('publicar').style.display = 'none';
-  document.getElementById('modalPublicar').style.display = 'none';
-  document.getElementById('modalCierre').style.display = 'block';
-});
-
-document.getElementById('cerrar').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('pagPrincipal').style.display = 'none';
-  document.getElementById('inicio').style.display = 'block';
-});
-
-document.getElementById('home').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('modalCierre').style.display = 'none';
-  document.getElementById('modalPublicar').style.display = 'none';
-  document.getElementById('publicar').style.display = 'block';
-}); */
