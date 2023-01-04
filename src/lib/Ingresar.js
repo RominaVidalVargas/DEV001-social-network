@@ -1,7 +1,6 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, } from 'firebase/auth';
 import { SignIn } from '../controller/controladoresfb';
 
-
 export const ingresar = (changeRouter) => {
   const contenedorIng = document.createElement('div');
   contenedorIng.classList.add('logIn');
@@ -43,18 +42,16 @@ export const ingresar = (changeRouter) => {
   const Btngoogle = document.createElement('button');
   Btngoogle.textContent = 'Ingresa con tu cuenta';
   Btngoogle.classList.add('google');
- 
+
   BtnIr.addEventListener('click', () => {
     const userEmail = email.value;
     const userPassword = password.value;
     SignIn(userEmail, userPassword, changeRouter)
       .then((userCredential) => {
-        changeRouter('/pagPrincipal');
-        
         const user = userCredential.user;
         console.log(user);
-     })
-     
+        changeRouter('/pagPrincipal');
+      })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
           document.getElementById.innerHTML = 'Este usuario ya se encuentra registrado';
@@ -65,15 +62,9 @@ export const ingresar = (changeRouter) => {
         } else if (error.code === 'auth/weak-password') {
           document.getElementById('errorInfo2').innerHTML = 'La clave debe tener al menos seis caracteres';
         }
-        
       });
-
-
   });
 
-  
-  
-  
   BtnOjo.addEventListener('click', () => {
     const tipo = document.getElementById('password');
     if (tipo.type === 'password') {
@@ -87,13 +78,12 @@ export const ingresar = (changeRouter) => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
-      console.log(credentials);
       changeRouter('/pagPrincipal');
     } catch (error) {
       console.log(error);
     }
   });
- 
+
   contenedorIng.append(email, password, BtnOjo, BtnIr, imgGoogle, Btngoogle);
   return contenedorIng;
 };

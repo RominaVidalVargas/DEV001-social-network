@@ -1,24 +1,45 @@
-//import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
+// import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
 import { doc } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { publicaciones, getNotes, onGetNotes, DeleteNotes, editNote, updateNotes, getNote } from '../controller/controladoresfb';
 
+// para leer datos
 
-
-//para leer datos
-
-
-const ContenPubli = document.getElementById('contenPost');
-const WritePubli = document.getElementById('WritePubli');
-
-
+// const ContenPubli = document.getElementById('contenPost');
+// const WritePubli = document.getElementById('WritePubli');
 
 let editStatus = false;
 let id = '';
 
+export const WritePubli = () => {
+  const publicarMuro = document.createElement('div');
+  publicarMuro.classList.add('publicarMuro');
+  publicarMuro.innerHTML = `
+  <form id ="WritePubli">
+  <div class="muro">
+  <textarea id="subject" name="subject" placeholder="Escribe tu publicación..." style="height:200px"></textarea>
+  </div>
+
+  <div class="boton">
+  <input type="submit" value="Publicar" id = "submit">
+  </div>
+  </form>`;
+
+ WritePubli.append(publicarMuro);
+ return WritePubli
+};
+
+export const ContenPubli = () => {
+  const post = document.createElement('div');
+  post.classList.add('container');
+  post.id = ('contenPost');
+  ContenPubli.append(post);
+  return ContenPubli
+};
+
 export function pagPrincipal() {
   onGetNotes((querySnapshot) => {
-    ContenPubli.innerHTML = "";
+    ContenPubli.innerHTML = '';
 
     querySnapshot.forEach((doc) => {
       const post = doc.data();
@@ -31,9 +52,9 @@ export function pagPrincipal() {
       </div>`;
     });
 
-    //borrar publicaciones
+    // borrar publicaciones
 
-    const Btnborrar = ContenPubli.querySelectorAll(".Btnborrar");
+    const Btnborrar = ContenPubli.querySelectorAll('.Btnborrar');
     Btnborrar.forEach((Btn) => 
       Btn.addEventListener('click', async ({ target: { dataset } }) => {
         try {
@@ -41,17 +62,16 @@ export function pagPrincipal() {
         } catch (error) {
           console.log('error');
         }
-
-      })
+      });
     );
-    //editar publicaciones
+    // editar publicaciones
     const Btneditar = ContenPubli.querySelectorAll(".Btneditar");
     Btneditar.forEach((Btn) => {
       Btn.addEventListener('click', async (e) => {
         try {
           const doc = await getNote(e.target.dataset.id);
           const nota = doc.data();
-          WritePubli['subject'].value = nota.subject;
+          WritePubli[' subject '].value = nota.subject;
           editStatus = true;
           id = doc.id;
           WritePubli["submit"].innerText = "Update";
@@ -61,18 +81,13 @@ export function pagPrincipal() {
       });
     });
   });
- 
-}  
-  
-  
-  
+};
 
-
-//actualizar publicaciones
-WritePubli.addEventListener("submit", async (e) => {
+// actualizar publicaciones
+WritePubli.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const post = WritePubli["subject"];
+  const post = WritePubli[' subject '];
 
   try {
     if (!editStatus) {
@@ -94,7 +109,3 @@ WritePubli.addEventListener("submit", async (e) => {
     console.log(error);
   }
 });
-
-
-
-

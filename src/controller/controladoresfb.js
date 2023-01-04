@@ -11,7 +11,7 @@ import { getFirestore,
   getDoc,
   updateDoc,
 
-   } from 'firebase/firestore';
+} from 'firebase/firestore';
 import { auth } from './firebase';
 
 // eslint-disable-next-line arrow-body-style
@@ -37,8 +37,6 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }
 });*/
-
-
 
 
 export const db = getFirestore();
