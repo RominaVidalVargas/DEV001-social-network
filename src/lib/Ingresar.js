@@ -71,9 +71,8 @@ export const ingresar = (changeRouter) => {
 
   });
 
-  BtnIr.addEventListener('click', () => {
-    const verFormulario = document.getElementsByClassName('formulario').style.display = 'block';
-  });
+  
+  
   
   BtnOjo.addEventListener('click', () => {
     const tipo = document.getElementById('password');
