@@ -5,13 +5,13 @@ import { publicaciones, getNotes, onGetNotes, DeleteNotes, editNote, updateNotes
 
 // para leer datos
 
-// const ContenPubli = document.getElementById('contenPost');
-// const WritePubli = document.getElementById('WritePubli');
+ const ContenPubli = document.getElementById('contenPost');
+ const WritePubli = document.getElementById('WritePubli');
 
 let editStatus = false;
 let id = '';
 
-export const WritePubli = () => {
+/* export const WritePubli = () => {
   const publicarMuro = document.createElement('div');
   publicarMuro.classList.add('publicarMuro');
   publicarMuro.innerHTML = `
@@ -35,7 +35,7 @@ export const ContenPubli = () => {
   post.id = ('contenPost');
   ContenPubli.append(post);
   return ContenPubli
-};
+};*/ 
 
 export function pagPrincipal() {
   onGetNotes((querySnapshot) => {
@@ -62,7 +62,7 @@ export function pagPrincipal() {
         } catch (error) {
           console.log('error');
         }
-      });
+      })
     );
     // editar publicaciones
     const Btneditar = ContenPubli.querySelectorAll(".Btneditar");
