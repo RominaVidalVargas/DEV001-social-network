@@ -2,31 +2,16 @@
 import { doc } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { publicaciones, getNotes, onGetNotes, DeleteNotes, editNote, updateNotes, getNote } from '../controller/controladoresfb';
-//import { Formulario, Contenedor } from './formulario.js';
+
 
 
 //para leer datos
-const WritePubli = document.getElementById('WritePubli');
-const writePublic = document.createElement('form');
-writePublic.innerHTML= `<form id ="WritePubli">
-<div class="col-75">
-  <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-</div>
 
-<div class="row">
-<input type="submit" value="Submit" id = "submit">
-</div>
-</form>`;
- 
-Formulario.append(writePublic, ContenPubli);
-return Formulario;
 
 const ContenPubli = document.getElementById('contenPost');
-const contenPublic = document.createElement('div');
+const WritePubli = document.getElementById('WritePubli');
 
-contenPublic.innerHTML= `<div class="container" id="contenPost"></div>`;
-Contenedor.append(contenPublic);
-return Contenedor
+
 
 let editStatus = false;
 let id = '';
