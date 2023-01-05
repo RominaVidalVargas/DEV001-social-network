@@ -4,7 +4,6 @@
 .logIn3,
 .pagPrincipal {
   align-items: center;
-  /* background-color: rgba(115, 242, 242, 1);*/
   text-align: center;
   background-size: cover;
   display: flex;
@@ -30,7 +29,8 @@ body {
 .ingresar,
 .crearCuenta,
 .google,
-.ir {
+.ir,
+#btnPublicar {
   align-content: center;
   background-color: #FEEBD3;
   border-color: #F2BD4D;
@@ -41,7 +41,20 @@ body {
   height: 40px;
   width: 200px;
   margin: 20px;
+}
 
+.Btnborrar,
+.Btneditar {
+  align-content: center;
+  background-color: #FEEBD3;
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  margin: 20px;
+  color: #8B969D;
+  font-size: 15px;
+  height: 30px;
+  width: 80px;
+  margin: 3%;
 }
 
 .Ojo {
@@ -54,7 +67,6 @@ body {
   background-color: rgba(235, 137, 237, 0.27);
 }
 
-/* cambio de pagina */
 .frase1 {
   font-size: 25px;
   color: rgba(91, 110, 116, 1);
@@ -78,7 +90,6 @@ body {
   margin: 20px;
 }
 
-/* cambio de pagina */
 .nuevaCuenta {
   justify-content: column;
 }
@@ -91,49 +102,9 @@ body {
   height: 50px;
 }
 
-.home,
-.adopcion {
-  background: rgba(52, 227, 238, 1);
-  border: none;
-  width: 25%;
-  text-align: center;
-  font-size: 100%;
-  color: rgba(91, 110, 116, 1);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.perfil {
-  background: rgba(52, 227, 238, 1);
-  border: none;
-  width: 20%;
-  text-align: center;
-  font-size: auto;
-  color: rgba(91, 110, 116, 1);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.home:hover,
-.adopcion:hover,
-.perfil:hover {
-  color: #F2BD4D;
-  transform: scale(1.1);
-  background: #FEEBD3;
-}
-
-.cuerpo {
-  padding: 30px;
-  height: auto;
-}
-
 .logo {
   height: 25%;
   width: 25%;
-  margin: 5 0 0 0;
-}
-
-.cierre {
-  height: 45%;
-  width: 55%;
   margin: 5 0 0 0;
 }
 
@@ -141,7 +112,6 @@ body {
 .patitasAba {
   height: 100%;
   width: 100%;
-  /*background: #65D6DD;*/
 }
 
 .animal {
@@ -172,117 +142,55 @@ body {
   flex-direction: column;
 }
 
-.publicar,
-.regresar,
-.publicar2 {
+
+.publicarMuro {
   background: rgba(52, 226, 238, 0.473);
   border-color: #F2BD4D;
   border-radius: 15px;
-  margin: 20px;
   color: #8B969D;
-  font-size: 20px;
-  height: 40px;
-  width: 100px;
+  height: 230px;
+  width: 600px;
+  padding: 2%;
+  margin-left: 30%;
+  text-align: center;
 }
 
-/* #modal {
-  display: none;
-  justify-content: column;
-  align-content: center;
-  background-color: rgba(52, 226, 238, 0.464);
-  height: 75%;
-  width: 60%;
-  padding: 2%;
-  border-style: groove;
-  border-radius: 5%;
-  box-shadow: 0 0px 4px #777, 0 0 20px;
-  margin: auto;
-}*/ 
 
-.publicacion {
-  width: 80%;
-  height: 150px;
-  text-align: center;
-  background-color: rgba(52, 226, 238, 0.464);
+#subject {
+  background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;
-  text-transform: capitalize;
-}
-
-.modalCierre {
-  display: none;
-  justify-content: column;
-  align-content: center;
-  background-color: rgba(52, 226, 238, 0.464);
-  height: 55%;
-  width: 60%;
-  border-style: groove;
-  border-radius: 5%;
-  box-shadow: 0 0px 4px #777, 0 0 20px;
-  margin: auto;
-}
-
-/* Style inputs, select elements and textareas */
-input[type=text], select, textarea{
-  width: 40%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
-  display: block;
-
-}
-
-
-/* Style the submit button */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-/* Style the container */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-/* Floating column for labels: 25% width */
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-/* Floating column for inputs: 75% width */
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+  margin: 5%;
+  color: #8B969D;
+  font-size: 20px;
+  height: 130px;
+  width: 330px;
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
     margin-top: 0;
-  }
-}
-.contenedor{
-  width: 100%;
-  height: auto;
-}
+  }  */
 
+.container {
+  background: rgba(52, 226, 238, 0.473);
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  color: #8B969D;
+  height: auto;
+  width: 300px;
+  padding: 3%;
+  margin: 3%;
+  margin-left: 30%;
+}
+.img{
+  width: 25%;
+}
+.muro{
+  text-align: center;
+}
+#like{
+  height: 25px;
+}

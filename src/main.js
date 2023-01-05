@@ -29,6 +29,16 @@ window.onpopstate = () => {
   containerRoot.append(verPost());
 };
 containerRoot.appendChild(verPost());
+const counterVal = 0;
+
+/* intento de btn like */
+/* export function incrementClick() {
+  updateDisplay(++counterVal);
+}
+
+export function updateDisplay(val) {
+  document.getElementById('counter-label').innerHTML = val;
+}  */
 
 // import { registrar } from 'firebase/auth';
 // Este es el punto de entrada de tu aplicacion
