@@ -13,6 +13,7 @@ export const changeRouter = (pathname) => {
   );
   containerRoot.removeChild(containerRoot.firstChild);
   containerRoot.appendChild(rutas[pathname]);
+  
 };
 
 const rutas = {

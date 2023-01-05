@@ -62,15 +62,15 @@ export function pagPrincipal() {
     }));
     // editar publicaciones
     const Btneditar = ContenPubli.querySelectorAll('.Btneditar');
-    Btneditar.forEach((Btn) => {
-      Btn.addEventListener('click', async (e) => {
+   Btneditar.forEach((Btn1) => {
+      Btn1.addEventListener('click', async (e) => {
         try {
           const doc = await getNote(e.target.dataset.id);
           const nota = doc.data();
-          WritePubli.subject.value = nota.subject;
+          WritePubli['subject'].value = nota.subject;
           editStatus = true;
           id = doc.id;
-          WritePubli.submit.innerText = 'Update';
+          WritePubli['submit'].innerText = 'Update';
         } catch (error) {
           console.log(error);
         }
@@ -83,7 +83,7 @@ export function pagPrincipal() {
   WritePubli.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const post = e.target[' subject '];
+    const post = e.target['subject'];
 
     try {
       if (!editStatus) {
@@ -98,8 +98,8 @@ export function pagPrincipal() {
         id = '';
         WritePubli['btn-task-form'].innerText = 'Save';
       }
-
-      WritePubli.reset();
+console.log(WritePubli);
+      WritePubli.firstElementChild.reset();
       subject.focus();
     } catch (error) {
       console.log(error);
