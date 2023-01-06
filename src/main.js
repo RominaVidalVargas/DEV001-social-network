@@ -13,9 +13,7 @@ export const changeRouter = (pathname) => {
   );
   containerRoot.removeChild(containerRoot.firstChild);
   containerRoot.appendChild(rutas[pathname]);
-
 };
-
 const rutas = {
   '/': inicio(changeRouter),
   '/crearCuenta': crearCuenta(changeRouter),
@@ -31,4 +29,4 @@ window.onpopstate = () => {
 };
 containerRoot.appendChild(verPost());
 const counterVal = 0;
-
+console.log(counterVal);
