@@ -67,9 +67,11 @@ export function pagPrincipal() {
         try {
           const doc = await getNote(e.target.dataset.id);
           const nota = doc.data();
+          // eslint-disable-next-line no-use-before-define
           WritePubli.firstElementChild.subject.value = nota.subject;
           editStatus = true;
           id = doc.id;
+          // eslint-disable-next-line no-use-before-define
           WritePubli.firstElementChild.submit.innerText = 'Update';
         } catch (error) {
           console.log(error);
