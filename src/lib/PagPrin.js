@@ -1,7 +1,7 @@
 // import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
-import { doc } from 'firebase/firestore';
+// import { doc } from 'firebase/firestore';
 import {
-  publicaciones, getNotes, onGetNotes, DeleteNotes, editNote, updateNotes, getNote,
+  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote,
 } from '../controller/controladoresfb';
 
 // para leer datos
@@ -62,15 +62,15 @@ export function pagPrincipal() {
     }));
     // editar publicaciones
     const Btneditar = ContenPubli.querySelectorAll('.Btneditar');
-   Btneditar.forEach((Btn) => {
+    Btneditar.forEach((Btn) => {
       Btn.addEventListener('click', async (e) => {
         try {
           const doc = await getNote(e.target.dataset.id);
           const nota = doc.data();
-          WritePubli.firstElementChild['subject'].value = nota.subject;
+          WritePubli.firstElementChild.subject.value = nota.subject;
           editStatus = true;
           id = doc.id;
-          WritePubli.firstElementChild['submit'].innerText = 'Update';
+          WritePubli.firstElementChild.submit.innerText = 'Update';
         } catch (error) {
           console.log(error);
         }
@@ -83,7 +83,8 @@ export function pagPrincipal() {
   WritePubli.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const post = e.target['subject'];
+    const post = e.target.subject;
+    console.log(post);
 
     try {
       if (!editStatus) {
@@ -96,13 +97,13 @@ export function pagPrincipal() {
 
         editStatus = false;
         id = '';
-        WritePubli.firstElementChild['submit'].innerText = 'Save';
+        WritePubli.firstElementChild.submit.innerText = 'Save';
       }
-console.log(WritePubli);
+      console.log(WritePubli);
       WritePubli.firstElementChild.reset();
       subject.focus();
     } catch (error) {
-      //console.log(error);
+      // console.log(error);
     }
   });
 

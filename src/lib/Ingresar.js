@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { SignIn } from '../controller/controladoresfb';
 
 export const ingresar = (changeRouter) => {
@@ -78,6 +78,7 @@ export const ingresar = (changeRouter) => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
+      console.log(credentials);
       changeRouter('/pagPrincipal');
     } catch (error) {
       console.log(error);
