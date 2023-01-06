@@ -110,27 +110,3 @@ export function pagPrincipal() {
   contenedor.append(WritePubli);
   return contenedor;
 }
-
-/* window.onload = function () {
-  const clickDiv = document.getElementById('click-div');
-  clickDiv.onclick = incrementClick;
-
-  const resetBtn = document.getElementById('reset-button');
-  resetBtn.onclick = resetCounter;
-};
-
-let counterVal = 0;
-
-incrementClick = function () {
-  updateDisplay(++counterVal);
-};
-
-function resetCounter() {
-  counterVal = 0;
-  updateDisplay(counterVal);
-}
-
-function updateDisplay(val) {
-  document.getElementById('counter-label').innerHTML = val;
-}
- */
