@@ -1,6 +1,7 @@
+/* eslint-disable arrow-parens */
 /* eslint-disable arrow-body-style */
 import {
-  createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, signOut,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut,
 }
   from 'firebase/auth';
 import {
@@ -54,8 +55,5 @@ export const updateNotes = (id, newFile) => updateDoc(doc(db, 'publicaciones', i
 
 export const getNote = (id) => getDoc(doc(db, 'publicaciones', id));
 
-//cerrar sesión
-export const CerrarSesion= () => signOut(auth);
-
-
-
+// cerrar sesión
+export const CerrarSesion = () => signOut(auth);

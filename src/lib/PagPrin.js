@@ -1,10 +1,10 @@
+/* eslint-disable no-undef */
+/* eslint-disable arrow-parens */
 // import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
- 
-import {
-  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote, CerrarSesion, stateChanged
-  
-} from '../controller/controladoresfb';
 
+import {
+  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote, CerrarSesion, stateChanged,
+} from '../controller/controladoresfb';
 
 // para leer datos
 
@@ -50,9 +50,8 @@ export function pagPrincipal() {
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;
-   
-  });
-  // borrar publicaciones
+    });
+    // borrar publicaciones
 
     const Btnborrar = ContenPubli.querySelectorAll('.Btnborrar');
     Btnborrar.forEach((Btn) => Btn.addEventListener('click', async ({ target: { dataset } }) => {
@@ -112,15 +111,14 @@ export function pagPrincipal() {
   });
   // identificador de usuario
   const nombreUsuario = document.querySelector('#nameUser');
-  stateChanged(user=>{
-    if(user){
-      console.log(user)
-      nombreUsuario.innerHTML= user.displayName
+  stateChanged(user => {
+    if (user) {
+      console.log(user);
+      nombreUsuario.innerHTML = user.displayName;
     }
-  })
+  });
 
-
-  // cerrar sesion 
+  // cerrar sesion
   const BtnCerrar = document.createElement('button');
   BtnCerrar.textContent = 'CerrarSesiòn';
   BtnCerrar.classList.add('cerrarSesion');
@@ -133,7 +131,6 @@ export function pagPrincipal() {
       });
     });
   });
-  
 
   contenedor.append(WritePubli, BtnCerrar);
   return contenedor;
@@ -161,4 +158,3 @@ function updateDisplay(val) {
   document.getElementById('counter-label').innerHTML = val;
 }
  */
-
