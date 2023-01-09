@@ -1,13 +1,8 @@
-/* eslint-disable no-undef */
-/* eslint-disable arrow-parens */
-// import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
-
 import {
-  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote, CerrarSesion, stateChanged,
+  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote,
 } from '../controller/controladoresfb';
 
 // para leer datos
-
 let editStatus = false;
 let id = '';
 export const makeWritePubli = () => {
@@ -51,8 +46,8 @@ export function pagPrincipal() {
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;
     });
-    // borrar publicaciones
 
+    // borrar publicaciones
     const Btnborrar = ContenPubli.querySelectorAll('.Btnborrar');
     Btnborrar.forEach((Btn) => Btn.addEventListener('click', async ({ target: { dataset } }) => {
       try {
@@ -61,6 +56,7 @@ export function pagPrincipal() {
         console.log('error');
       }
     }));
+
     // editar publicaciones
     const Btneditar = ContenPubli.querySelectorAll('.Btneditar');
     Btneditar.forEach((Btn) => {
@@ -80,22 +76,20 @@ export function pagPrincipal() {
       });
     });
   });
+
   // actualizar publicaciones
   contenedor.append(ContenPubli);
   const WritePubli = makeWritePubli();
   WritePubli.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const post = e.target.subject;
     console.log(post);
-
     try {
       if (!editStatus) {
         await publicaciones(subject.value);
       } else {
         await updateNotes(id, {
           subject: subject.value,
-
         });
 
         editStatus = false;
@@ -109,32 +103,11 @@ export function pagPrincipal() {
       // console.log(error);
     }
   });
-  // identificador de usuario
-  const nombreUsuario = document.querySelector('#nameUser');
-  stateChanged(user => {
-    if (user) {
-      console.log(user);
-      nombreUsuario.innerHTML = user.displayName;
-    }
-  });
 
-  // cerrar sesion
-  const BtnCerrar = document.createElement('button');
-  BtnCerrar.textContent = 'CerrarSesiòn';
-  BtnCerrar.classList.add('cerrarSesion');
-  const salir = contenedor.querySelectorAll('.cerrarSesion');
-  salir.forEach((Btn) => {
-    Btn.addEventListener('click', () => {
-      CerrarSesion().then(() => {
-        changeRouter('/');
-        window.location.reload();
-      });
-    });
-  });
-
-  contenedor.append(WritePubli, BtnCerrar);
+  contenedor.append(WritePubli);
   return contenedor;
 }
+
 /* window.onload = function () {
   const clickDiv = document.getElementById('click-div');
   clickDiv.onclick = incrementClick;

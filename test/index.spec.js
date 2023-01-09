@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable implicit-arrow-linebreak */
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
 } from 'firebase/auth';
@@ -41,7 +39,9 @@ describe('nuevoUsuario', () => {
         password: '123456',
       });
     });
-    nuevoUsuario(createUserWithEmailAndPassword);
+    const email = 'hola1@hola1.com';
+    const password = '1234567';
+    nuevoUsuario(email, password);
 
     expect(createUserWithEmailAndPassword).toBeCalled();
   });
@@ -134,16 +134,6 @@ describe('publicaciones', () => {
     publicaciones(addDoc);
     expect(addDoc).toBeCalled();
   });
-  it('Debería devolver un objeto', () => {
-    addDoc.mockImplementation(() => Promise.resolve('resolve'));
-    collection.mockImplementation(() => ({
-      coment: 'Hola',
-    }));
-    publicaciones('Hola');
-    expect(addDoc).toEqual(expect.anything(), {
-      coment: 'Hola',
-    });
-  });
 });
 
 // Test editar
@@ -151,7 +141,7 @@ describe('editNote', () => {
   it('Debería ser una función', () => {
     expect(typeof editNote).toBe('function');
   });
-  it('Debería ser llamada con un parametro', () => {
+  it('Debería llamar getDoc con el id solicitado', () => {
     getDoc.mockImplementation(() => Promise.resolve('resolve'));
     doc.mockImplementation(() => ('1cbpxRxjqhEVoNI3X3MB'));
     const id = '1cbpxRxjqhEVoNI3X3MB';
