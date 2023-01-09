@@ -1,8 +1,10 @@
 // import { getFirestore, collection, addDoc,getDocs, onSnapshot} from '../controller';
-// import { doc } from 'firebase/firestore';
+ 
 import {
-  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote,
+  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote, CerrarSesion, stateChanged
+  
 } from '../controller/controladoresfb';
+
 
 // para leer datos
 
@@ -44,13 +46,13 @@ export function pagPrincipal() {
         <h3>${post.subject}</h3>
         <div id="likes">   
         <p id="counter-label">0
-          <img src="imagenes/like.png" id="like" type="button" onclick="incrementClick()"></button>
+        <img src="imagenes/like.png" id="like" type="button" onclick="incrementClick()"></button>
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;
-    });
-
-    // borrar publicaciones
+   
+  });
+  // borrar publicaciones
 
     const Btnborrar = ContenPubli.querySelectorAll('.Btnborrar');
     Btnborrar.forEach((Btn) => Btn.addEventListener('click', async ({ target: { dataset } }) => {
@@ -108,7 +110,55 @@ export function pagPrincipal() {
       // console.log(error);
     }
   });
+  // identificador de usuario
+  const nombreUsuario = document.querySelector('#nameUser');
+  stateChanged(user=>{
+    if(user){
+      console.log(user)
+      nombreUsuario.innerHTML= user.displayName
+    }
+  })
 
-  contenedor.append(WritePubli);
+
+  // cerrar sesion 
+  const BtnCerrar = document.createElement('button');
+  BtnCerrar.textContent = 'CerrarSesiòn';
+  BtnCerrar.classList.add('cerrarSesion');
+  const salir = contenedor.querySelectorAll('.cerrarSesion');
+  salir.forEach((Btn) => {
+    Btn.addEventListener('click', () => {
+      CerrarSesion().then(() => {
+        changeRouter('/');
+        window.location.reload();
+      });
+    });
+  });
+  
+
+  contenedor.append(WritePubli, BtnCerrar);
   return contenedor;
 }
+/* window.onload = function () {
+  const clickDiv = document.getElementById('click-div');
+  clickDiv.onclick = incrementClick;
+
+  const resetBtn = document.getElementById('reset-button');
+  resetBtn.onclick = resetCounter;
+};
+
+let counterVal = 0;
+
+incrementClick = function () {
+  updateDisplay(++counterVal);
+};
+
+function resetCounter() {
+  counterVal = 0;
+  updateDisplay(counterVal);
+}
+
+function updateDisplay(val) {
+  document.getElementById('counter-label').innerHTML = val;
+}
+ */
+

@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 import {
-  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, signOut,
 }
   from 'firebase/auth';
 import {
@@ -21,6 +21,7 @@ import { auth } from './firebase';
 export const nuevoUsuario = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
+export const stateChanged = (user) => onAuthStateChanged(auth, (user));
 
 export const SignIn = (userEmail, userPassword) => {
   return signInWithEmailAndPassword(auth, userEmail, userPassword);
@@ -52,3 +53,9 @@ export const editNote = id => getDoc(doc(db, 'publicaciones', id));
 export const updateNotes = (id, newFile) => updateDoc(doc(db, 'publicaciones', id), newFile);
 
 export const getNote = (id) => getDoc(doc(db, 'publicaciones', id));
+
+//cerrar sesión
+export const CerrarSesion= () => signOut(auth);
+
+
+
