@@ -191,7 +191,7 @@ body {
 .muro{
   text-align: center;
 }
-#like{
+.btnLike{
   background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;

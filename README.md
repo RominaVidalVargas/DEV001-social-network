@@ -1,4 +1,5 @@
-# Creando una Red Social
+# Mascotaland,una Red Social Para amantes las Mascotas
+Nuestra red social; esta dedicada y enfocada para amantes de las mascotas. Donde podrán iniciar e ingresar una cuenta a  base de correo y clave o con usuarion de Google, para asi poder realizar publicaciones de las historias de sus mascotas, tambien pudiendo editar, borrar e incluso dar like a sus post.
 
 ## Índice
 
