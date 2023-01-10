@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import {
   publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote,
 } from '../controller/controladoresfb';
@@ -34,6 +35,7 @@ export function pagPrincipal() {
   onGetNotes((querySnapshot) => {
     ContenPubli.innerHTML = '';
 
+    /*
     // dar like a las publicacion
     function clickLike () {
       if (typeof (Storage) !== 'undefined') {
@@ -45,14 +47,11 @@ export function pagPrincipal() {
         document.getElementById('result').innerHTML = `Likes  ${localStorage.clickLike}`;
       }
     }
-
+    */
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       ContenPubli.innerHTML += `<div>
-      
         <h3>${post.subject}</h3>
-        <button onclick="clickLike()" type="button" id="like">Me Gusta❤️</button>
-<div id="result"></div>
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;
