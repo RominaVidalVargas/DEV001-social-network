@@ -35,7 +35,6 @@ export function pagPrincipal() {
   onGetNotes((querySnapshot) => {
     ContenPubli.innerHTML = '';
 
-64d626761950002ea5e075c01ca8925daa4f91a3
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       ContenPubli.innerHTML += `<div>
@@ -43,8 +42,7 @@ export function pagPrincipal() {
 
         <button type="button" class="btnLike" data-id="like">Me Gusta❤️</button>
 <div id="result"></div>
-=======
->>>>>>> 64d626761950002ea5e075c01ca8925daa4f91a3
+
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;
