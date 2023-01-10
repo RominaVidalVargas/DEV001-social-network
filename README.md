@@ -1,5 +1,6 @@
-# Mascotaland,una Red Social Para amantes las Mascotas
+# Mascotaland, una Red Social Para amantes de las Mascotas
 Nuestra red social; esta dedicada y enfocada para amantes de las mascotas. Donde podrán iniciar e ingresar una cuenta a  base de correo y clave o con usuarion de Google, para asi poder realizar publicaciones de las historias de sus mascotas, tambien pudiendo editar, borrar e incluso dar like a sus post.
+
 ##HU1 
 Poder crear cuanta con correo valido y clave cumpliendo requerimientos
 
@@ -13,6 +14,7 @@ Poder realizar post de texto, editar mediente click y borrar mediante click
 Poder dar Like y visualizar el contador de likes
 
 ##Prototipos:
+
 ![prototipo1](https://user-images.githubusercontent.com/114014708/211569527-b3498ebb-4148-405b-9206-12470850dfec.png)
 
 ![prototipo2](https://user-images.githubusercontent.com/114014708/211569793-09479ad5-43ba-46bc-9fd7-f68cb52816a3.png)
