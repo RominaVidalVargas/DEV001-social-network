@@ -1,3 +1,5 @@
+/* eslint-disable arrow-parens */
+/* eslint-disable arrow-body-style */
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword,
 } from 'firebase/auth';
