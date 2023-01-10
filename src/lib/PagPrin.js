@@ -34,14 +34,25 @@ export function pagPrincipal() {
   onGetNotes((querySnapshot) => {
     ContenPubli.innerHTML = '';
 
+    // dar like a las publicacion
+    function clickLike () {
+      if (typeof (Storage) !== 'undefined') {
+        if (localStorage.clickLike) {
+          localStorage.clickLike = Number(localStorage.clickLike) + 1;
+        } else {
+          localStorage.clickLike = 1;
+        }
+        document.getElementById('result').innerHTML = `Likes  ${localStorage.clickLike}`;
+      }
+    }
+
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       ContenPubli.innerHTML += `<div>
       
         <h3>${post.subject}</h3>
-        <div id="likes">   
-        <p id="counter-label">0
-        <img src="imagenes/like.png" id="like" type="button" onclick="incrementClick()"></button>
+        <button onclick="clickLike()" type="button" id="like">Me Gusta❤️</button>
+<div id="result"></div>
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;

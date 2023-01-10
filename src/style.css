@@ -30,7 +30,7 @@ body {
 .crearCuenta,
 .google,
 .ir,
-#btnPublicar {
+#btnPublicar{
   align-content: center;
   background-color: #FEEBD3;
   border-color: #F2BD4D;
@@ -192,5 +192,13 @@ body {
   text-align: center;
 }
 #like{
-  height: 25px;
+  background-color: #FEEBD3;
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  margin: 20px;
+  color: #8B969D;
+  font-size: 20px;
+  height: 35px;
+  width: 150px;
+
 }
