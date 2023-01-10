@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import {
-  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote,
+  publicaciones, onGetNotes, DeleteNotes, updateNotes, getNote, editLike,
 } from '../controller/controladoresfb';
 
 // para leer datos
@@ -35,27 +35,30 @@ export function pagPrincipal() {
   onGetNotes((querySnapshot) => {
     ContenPubli.innerHTML = '';
 
-    /*
-    // dar like a las publicacion
-    function clickLike () {
-      if (typeof (Storage) !== 'undefined') {
-        if (localStorage.clickLike) {
-          localStorage.clickLike = Number(localStorage.clickLike) + 1;
-        } else {
-          localStorage.clickLike = 1;
-        }
-        document.getElementById('result').innerHTML = `Likes  ${localStorage.clickLike}`;
-      }
-    }
-    */
+64d626761950002ea5e075c01ca8925daa4f91a3
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       ContenPubli.innerHTML += `<div>
         <h3>${post.subject}</h3>
+
+        <button type="button" class="btnLike" data-id="like">Me Gusta❤️</button>
+<div id="result"></div>
+=======
+>>>>>>> 64d626761950002ea5e075c01ca8925daa4f91a3
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
         <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
         </div> </div>`;
     });
+//like
+    const btnLike = ContenPubli.querySelectorAll('.btnLike');
+    btnLike.forEach((btn) => btn.addEventListener('click', async ({ target: { dataset } }) => {
+      try {
+        console.log(dataset.id);
+        await editLike(dataset.id);
+      } catch (error) {
+        console.log('error');
+      }
+    }));
 
     // borrar publicaciones
     const Btnborrar = ContenPubli.querySelectorAll('.Btnborrar');
@@ -110,34 +113,9 @@ export function pagPrincipal() {
       WritePubli.firstElementChild.reset();
       subject.focus();
     } catch (error) {
-      // console.log(error);
-    }
+}
   });
 
   contenedor.append(WritePubli);
   return contenedor;
 }
-
-/* window.onload = function () {
-  const clickDiv = document.getElementById('click-div');
-  clickDiv.onclick = incrementClick;
-
-  const resetBtn = document.getElementById('reset-button');
-  resetBtn.onclick = resetCounter;
-};
-
-let counterVal = 0;
-
-incrementClick = function () {
-  updateDisplay(++counterVal);
-};
-
-function resetCounter() {
-  counterVal = 0;
-  updateDisplay(counterVal);
-}
-
-function updateDisplay(val) {
-  document.getElementById('counter-label').innerHTML = val;
-}
- */

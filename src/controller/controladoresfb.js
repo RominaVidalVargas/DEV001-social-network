@@ -50,3 +50,5 @@ export const editNote = id => getDoc(doc(db, 'publicaciones', id));
 export const updateNotes = (id, newFile) => updateDoc(doc(db, 'publicaciones', id), newFile);
 
 export const getNote = (id) => getDoc(doc(db, 'publicaciones', id));
+
+export const editLike = (id) => getDoc(doc(db, 'publicaciones', id));
