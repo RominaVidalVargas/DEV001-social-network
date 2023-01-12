@@ -19,9 +19,14 @@
 body {
   margin: 0;
   background-color: rgba(115, 242, 242, 1);
-  background-size: cover;
+  text-align:center
 }
+.wall{
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: center;
 
+}
 .iniciar {
   flex-direction: column;
 }
@@ -113,24 +118,38 @@ body {
   height: 100%;
   width: 100%;
 }
+.patitas{
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+}
 
 .animal {
   height: 20%;
   width: 20%;
 
 }
-
-.google,
-.cerrar,
-.editar {
+.google{
   background-color: #FEEBD3;
   border-color: #F2BD4D;
   border-radius: 15px;
   margin: 20px;
   color: #8B969D;
-  font-size: 20px;
+  font-size: 15px;
   height: 40px;
-  width: 250px;
+  width: 200px;
+}
+
+.cerrar,
+.editar, .btnLike {
+  background-color: #FEEBD3;
+  border-color: #F2BD4D;
+  border-radius: 15px;
+  margin: 20px;
+  color: #8B969D;
+  font-size: 15px;
+  height: 30px;
+  width: 120px;
 }
 
 .imgGoogle {
@@ -142,17 +161,14 @@ body {
   flex-direction: column;
 }
 
-
 .publicarMuro {
   background: rgba(52, 226, 238, 0.473);
   border-color: #F2BD4D;
   border-radius: 15px;
   color: #8B969D;
-  height: 230px;
-  width: 600px;
-  padding: 2%;
-  margin-left: 30%;
-  text-align: center;
+  width: 400px;
+  padding: 3%;
+  margin: 3%;
 }
 
 
@@ -167,38 +183,22 @@ body {
   width: 330px;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-/* @media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }  */
-
 .container {
   background: rgba(52, 226, 238, 0.473);
   border-color: #F2BD4D;
   border-radius: 15px;
   color: #8B969D;
   height: auto;
-  width: 300px;
+  width: 400px;
   padding: 3%;
   margin: 3%;
-  margin-left: 30%;
 }
 .img{
-  width: 25%;
+  width: 50%;
 }
-.muro{
-  text-align: center;
-}
-.btnLike{
-  background-color: #FEEBD3;
-  border-color: #F2BD4D;
-  border-radius: 15px;
-  margin: 20px;
-  color: #8B969D;
-  font-size: 20px;
-  height: 35px;
-  width: 150px;
 
+.line{
+  background-color: #F2BD4D;
+  margin: 0%;
+  padding: 0%;
 }

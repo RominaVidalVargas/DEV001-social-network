@@ -6,6 +6,7 @@ import {
 // para leer datos
 let editStatus = false;
 let id = '';
+
 export const makeWritePubli = () => {
   const publicarMuro = document.createElement('div');
   publicarMuro.classList.add('publicarMuro');
@@ -21,16 +22,15 @@ export const makeWritePubli = () => {
 
   return publicarMuro;
 };
-
 export const makeContenPubli = () => {
   const post = document.createElement('div');
   post.classList.add('container');
   post.id = ('contenPost');
   return post;
 };
-
 export function pagPrincipal() {
   const contenedor = document.createElement('div');
+  contenedor.classList.add('wall');
   const ContenPubli = makeContenPubli();
   onGetNotes((querySnapshot) => {
     ContenPubli.innerHTML = '';
@@ -39,15 +39,17 @@ export function pagPrincipal() {
       const post = doc.data();
       ContenPubli.innerHTML += `<div>
         <h3>${post.subject}</h3>
-
-        <button type="button" class="btnLike" data-id="like">Me Gusta❤️</button>
-<div id="result"></div>
-
+        <div class="post">
+        <button class="btnLike" data-id="like">Like ❤️</button>
         <button class='Btnborrar' data-id='${doc.id}'>Borrar</button>
-        <button class='Btneditar' data-id='${doc.id}'>Editar</button></p>
-        </div> </div>`;
+        <button class='Btneditar' data-id='${doc.id}'>Editar</button>
+        </div>
+    <img src="imagenes/patitasAba.png" class="patitas">
+    <hr class="line">
+        </div>`;
     });
-//like
+
+    // like
     const btnLike = ContenPubli.querySelectorAll('.btnLike');
     btnLike.forEach((btn) => btn.addEventListener('click', async ({ target: { dataset } }) => {
       try {
@@ -62,6 +64,7 @@ export function pagPrincipal() {
     const Btnborrar = ContenPubli.querySelectorAll('.Btnborrar');
     Btnborrar.forEach((Btn) => Btn.addEventListener('click', async ({ target: { dataset } }) => {
       try {
+        alert('Estás segura que quieres borrar tu Post');
         await DeleteNotes(dataset.id);
       } catch (error) {
         console.log('error');
